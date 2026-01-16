@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { HiArrowUp, HiHeart } from "react-icons/hi";
 import { footerLinks, socialLinks } from '../data/Links';
 import Logo from './Logo';
@@ -40,14 +40,14 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.navigation.map((link) => (
                 <li key={link.name}>
-                  <motion.a
+                  <Motion.a
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
                     className="text-[#A89F91] hover:text-[#C4A77D] transition-colors text-sm"
                     whileHover={{ x: 3 }}
                   >
                     {link.name}
-                  </motion.a>
+                  </Motion.a>
                 </li>
               ))}
             </ul>
@@ -61,14 +61,14 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <motion.a
+                  <Motion.a
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
                     className="text-[#A89F91] hover:text-[#C4A77D] transition-colors text-sm"
                     whileHover={{ x: 3 }}
                   >
                     {link.name}
-                  </motion.a>
+                  </Motion.a>
                 </li>
               ))}
             </ul>
@@ -83,7 +83,7 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex gap-3 mb-6">
               {socialLinks.map((social) => (
-                <motion.a
+                <Motion.a
                   key={social.name}
                   href={social.href}
                   className="w-10 h-10 bg-[#3D3D3D] rounded-full flex items-center justify-center text-[#A89F91] hover:bg-[#C4A77D] hover:text-white transition-all"
@@ -92,7 +92,7 @@ const Footer = () => {
                   aria-label={social.name}
                 >
                   <social.icon size={18} />
-                </motion.a>
+                </Motion.a>
               ))}
             </div>
 
@@ -107,13 +107,13 @@ const Footer = () => {
                   placeholder="Your email"
                   className="flex-1 px-4 py-2.5 bg-[#3D3D3D] border border-[#4D4D4D] rounded-l-lg text-sm focus:outline-none focus:border-[#C4A77D] transition-colors"
                 />
-                <motion.button
+                <Motion.button
                   className="px-4 py-2.5 bg-[#C4A77D] text-[#2C2C2C] font-medium rounded-r-lg hover:bg-[#B8956A] transition-colors"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   Join
-                </motion.button>
+                </Motion.button>
               </div>
             </div>
           </div>
@@ -145,7 +145,7 @@ const Footer = () => {
           </div>
 
           {/* Back to Top Button */}
-          <motion.button
+          <Motion.button
             onClick={handleScrollToTop}
             className="w-10 h-10 bg-[#3D3D3D] rounded-full flex items-center justify-center text-[#A89F91] hover:bg-[#C4A77D] hover:text-white transition-all"
             whileHover={{ scale: 1.1, y: -2 }}
@@ -153,7 +153,7 @@ const Footer = () => {
             aria-label="Back to top"
           >
             <HiArrowUp size={18} />
-          </motion.button>
+          </Motion.button>
         </div>
       </div>
     </footer>

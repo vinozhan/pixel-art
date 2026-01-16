@@ -1,12 +1,12 @@
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion as Motion, useInView } from 'framer-motion';
 
 const ProcessCard = ({ step, index }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
-    <motion.div
+    <Motion.div
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -20,12 +20,12 @@ const ProcessCard = ({ step, index }) => {
         </span>
 
         {/* Icon */}
-        <motion.div
+        <Motion.div
           className="w-14 h-14 bg-[#FAF8F5] rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#C4A77D] transition-colors duration-300"
           whileHover={{ rotate: 5 }}
         >
           <step.icon className="w-7 h-7 text-[#C4A77D] group-hover:text-white transition-colors duration-300" />
-        </motion.div>
+        </Motion.div>
 
         {/* Content */}
         <h3 className="text-lg font-semibold text-[#2C2C2C] mb-2">
@@ -35,7 +35,7 @@ const ProcessCard = ({ step, index }) => {
           {step.description}
         </p>
       </div>
-    </motion.div>
+    </Motion.div>
   );
 };
 

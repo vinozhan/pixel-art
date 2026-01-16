@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion as Motion, useInView } from 'framer-motion';
 import { HiArrowRight } from 'react-icons/hi';
 
 export const ArtworkCard = ({ artwork, index }) => {
@@ -8,7 +8,7 @@ export const ArtworkCard = ({ artwork, index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <motion.div
+    <Motion.div
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -19,8 +19,8 @@ export const ArtworkCard = ({ artwork, index }) => {
     >
       <div className="relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-2xl transition-shadow duration-500">
         {/* Image Container */}
-        <div className="relative aspect-[4/5] overflow-hidden">
-          <motion.img
+        <div className="relative aspect-4/5 overflow-hidden">
+          <Motion.img
             src={artwork.image}
             alt={artwork.title}
             className="w-full h-full object-cover"
@@ -29,8 +29,8 @@ export const ArtworkCard = ({ artwork, index }) => {
           />
 
           {/* Overlay */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+          <Motion.div
+            className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"
             initial={{ opacity: 0 }}
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
@@ -44,20 +44,20 @@ export const ArtworkCard = ({ artwork, index }) => {
           </div>
 
           {/* Hover Content */}
-          <motion.div
+          <Motion.div
             className="absolute bottom-0 left-0 right-0 p-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 20 }}
             transition={{ duration: 0.3 }}
           >
             <p className="text-white/90 text-sm mb-4">{artwork.description}</p>
-            <motion.button
+            <Motion.button
               className="flex items-center gap-2 text-white text-sm font-medium hover:text-[#C4A77D] transition-colors"
               whileHover={{ x: 5 }}
             >
               Read More <HiArrowRight />
-            </motion.button>
-          </motion.div>
+            </Motion.button>
+          </Motion.div>
         </div>
 
         {/* Card Footer */}
@@ -67,6 +67,6 @@ export const ArtworkCard = ({ artwork, index }) => {
           </h3>
         </div>
       </div>
-    </motion.div>
+    </Motion.div>
   );
 };

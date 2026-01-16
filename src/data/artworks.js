@@ -1,10 +1,10 @@
 // Import images
-import Sunrise from '../assets/Sunrise.png';
-import womanPortrait from '../assets/womanPortrait.png';
-import ParisStreet from '../assets/ParisStreet.png';
-import Kitten from '../assets/Kitten.png';
-import ForestPath from '../assets/ForestPath.png';
-import Flowers from '../assets/Flowers.png';
+import Sunrise from '../assets/images/Sunrise.png';
+import womanPortrait from '../assets/images/womanPortrait.png';
+import ParisStreet from '../assets/images/ParisStreet.png';
+import Kitten from '../assets/images/Kitten.png';
+import ForestPath from '../assets/images/ForestPath.png';
+import Flowers from '../assets/images/Flowers.png';
 
 export const artworks = [
   {

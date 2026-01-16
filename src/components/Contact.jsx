@@ -1,4 +1,4 @@
-import { motion, useInView } from 'framer-motion';
+import { motion as Motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Section from './Section';
 import { commissionFeatures } from '../data/commisionFeatures';
@@ -17,7 +17,7 @@ const Contact = () => {
     >
       <div ref={ref} className="grid lg:grid-cols-2 gap-12 lg:gap-16">
         {/* Left Column - Commission Info */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
           transition={{ duration: 0.6 }}
@@ -36,21 +36,21 @@ const Contact = () => {
           {/* Commission Features */}
           <div className="space-y-6">
             {commissionFeatures.map((feature, index) => (
-              <motion.div
+              <Motion.div
                 key={feature.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="flex gap-4"
               >
-                <div className="flex-shrink-0 w-12 h-12 bg-[#C4A77D]/10 rounded-xl flex items-center justify-center">
+                <div className="shrink-0 w-12 h-12 bg-[#C4A77D]/10 rounded-xl flex items-center justify-center">
                   <feature.icon className="w-6 h-6 text-[#C4A77D]" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-[#2C2C2C] mb-1">{feature.title}</h4>
                   <p className="text-sm text-[#8B8680]">{feature.description}</p>
                 </div>
-              </motion.div>
+              </Motion.div>
             ))}
           </div>
 
@@ -59,7 +59,7 @@ const Contact = () => {
             <h4 className="font-semibold text-[#2C2C2C] mb-4">Get in Touch</h4>
             <div className="space-y-3">
               {contactInfo.map((info) => (
-                <motion.a
+                <Motion.a
                   key={info.label}
                   href={info.href}
                   className="flex items-center gap-3 text-[#8B8680] hover:text-[#C4A77D] transition-colors"
@@ -67,14 +67,14 @@ const Contact = () => {
                 >
                   <info.icon className="w-5 h-5" />
                   <span>{info.value}</span>
-                </motion.a>
+                </Motion.a>
               ))}
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* Right Column - Contact Form */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -151,21 +151,21 @@ const Contact = () => {
                 />
               </div>
 
-              <motion.button
+              <Motion.button
                 type="submit"
                 className="w-full py-4 bg-[#2C2C2C] text-white font-medium rounded-xl hover:bg-[#C4A77D] transition-colors duration-300"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 Submit Request
-              </motion.button>
+              </Motion.button>
 
               <p className="text-xs text-center text-[#8B8680]">
                 I typically respond within 24-48 hours. Let's create something beautiful together.
               </p>
             </form>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </Section>
   );

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import Section from './Section';
 import { artworks } from '../data/artworks';
 import { ArtworkCard } from './ArtworkCard';
@@ -18,21 +18,21 @@ const Gallery = () => {
       </div>
 
       {/* View All Button */}
-      <motion.div
+      <Motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.3 }}
         className="text-center mt-12"
       >
-        <motion.button
+        <Motion.button
           className="px-8 py-4 border-2 border-[#2C2C2C] text-[#2C2C2C] font-medium rounded-full hover:bg-[#2C2C2C] hover:text-white transition-all duration-300"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           View All Artworks
-        </motion.button>
-      </motion.div>
+        </Motion.button>
+      </Motion.div>
     </Section>
   );
 };

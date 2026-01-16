@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import logoImage from '../assets/pixelArt.png';
+import { motion as Motion } from 'framer-motion';
+import logoImage from '../assets/images/pixelArt.png';
 
 const Logo = ({
   className = '',
@@ -20,7 +20,7 @@ const Logo = ({
   };
 
   return (
-    <motion.a
+    <Motion.a
       href="#home"
       onClick={handleClick}
       className={`inline-block ${className}`}
@@ -32,7 +32,7 @@ const Logo = ({
         alt="PixelArt logo"
         className={`${height} w-auto ${variant === 'light' ? 'brightness-0 invert' : ''}`}
       />
-    </motion.a>
+    </Motion.a>
   );
 };
 
