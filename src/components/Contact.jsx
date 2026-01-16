@@ -1,46 +1,8 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { HiLightBulb, HiPhotograph, HiCog, HiMail, HiPhone, HiLocationMarker } from 'react-icons/hi';
 import Section from './Section';
-
-const commissionFeatures = [
-  {
-    icon: HiLightBulb,
-    title: 'Your Ideas',
-    description: 'Share your vision, inspiration, and what you want the artwork to represent.',
-  },
-  {
-    icon: HiPhotograph,
-    title: 'Personal References',
-    description: 'Provide photos, sketches, or any reference material that helps guide the creation.',
-  },
-  {
-    icon: HiCog,
-    title: 'Unique Requirements',
-    description: 'Specify size, style preferences, color palette, and any special details you desire.',
-  },
-];
-
-const contactInfo = [
-  {
-    icon: HiMail,
-    label: 'Email',
-    value: 'hello@pixelart.studio',
-    href: 'mailto:hello@pixelart.studio',
-  },
-  {
-    icon: HiPhone,
-    label: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567',
-  },
-  {
-    icon: HiLocationMarker,
-    label: 'Studio',
-    value: 'San Francisco, CA',
-    href: '#',
-  },
-];
+import { commissionFeatures } from '../data/commisionFeatures';
+import { contactInfo } from '../data/contactInfo';
 
 const Contact = () => {
   const ref = useRef(null);

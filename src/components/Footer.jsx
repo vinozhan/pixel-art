@@ -1,28 +1,7 @@
 import { motion } from 'framer-motion';
-import { FaInstagram, FaPinterest, FaBehance, FaDribbble } from 'react-icons/fa';
-import { HiArrowUp } from 'react-icons/hi';
-
-const footerLinks = {
-  navigation: [
-    { name: 'Home', href: '#home' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
-  ],
-  services: [
-    { name: 'Custom Portraits', href: '#contact' },
-    { name: 'Landscapes', href: '#gallery' },
-    { name: 'Illustrations', href: '#gallery' },
-    { name: 'Commissions', href: '#contact' },
-  ],
-};
-
-const socialLinks = [
-  { name: 'Instagram', icon: FaInstagram, href: '#' },
-  { name: 'Pinterest', icon: FaPinterest, href: '#' },
-  { name: 'Behance', icon: FaBehance, href: '#' },
-  { name: 'Dribbble', icon: FaDribbble, href: '#' },
-];
+import { HiArrowUp, HiHeart } from "react-icons/hi";
+import { footerLinks, socialLinks } from '../data/Links';
+import Logo from './Logo';
 
 const Footer = () => {
   const handleScrollToTop = () => {
@@ -43,20 +22,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <motion.a
-              href="#home"
-              onClick={(e) => handleLinkClick(e, '#home')}
-              className="inline-block text-2xl font-semibold mb-4"
-              whileHover={{ scale: 1.02 }}
-            >
-              Pixel<span className="text-[#C4A77D]">Art</span>
-            </motion.a>
+            <Logo height="h-28" variant="light" className="mb-4" />
             <p className="text-[#A89F91] text-sm mb-6">
               Every Stroke Tells a Story
             </p>
             <p className="text-[#8B8680] text-sm leading-relaxed">
-              Creating unique hand-drawn artwork that captures emotions, memories,
-              and moments. Transform your ideas into timeless pieces.
+              Creating unique hand-drawn artwork that captures emotions,
+              memories, and moments. Transform your ideas into timeless pieces.
             </p>
           </div>
 
@@ -153,11 +125,21 @@ const Footer = () => {
             © {new Date().getFullYear()} PixelArt. All rights reserved.
           </p>
 
+          <p className="text-sm text-gray-400 flex items-center gap-1">
+            Made with <HiHeart className="text-rose-500 inline" /> by Vinozhan
+          </p>
+
           <div className="flex items-center gap-6">
-            <a href="#" className="text-[#8B8680] hover:text-[#C4A77D] text-sm transition-colors">
+            <a
+              href="#"
+              className="text-[#8B8680] hover:text-[#C4A77D] text-sm transition-colors"
+            >
               Privacy Policy
             </a>
-            <a href="#" className="text-[#8B8680] hover:text-[#C4A77D] text-sm transition-colors">
+            <a
+              href="#"
+              className="text-[#8B8680] hover:text-[#C4A77D] text-sm transition-colors"
+            >
               Terms of Service
             </a>
           </div>
