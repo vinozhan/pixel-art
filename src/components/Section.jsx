@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -18,7 +18,7 @@ const Section = ({
   return (
     <section id={id} className={`py-20 md:py-32 ${bgColor} ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <Motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
@@ -28,29 +28,29 @@ const Section = ({
           }`}
         >
           {subtitle && (
-            <motion.p
+            <Motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-[#C4A77D] font-medium tracking-widest text-sm mb-4"
             >
               {subtitle}
-            </motion.p>
+            </Motion.p>
           )}
 
           {title && (
-            <motion.h2
+            <Motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2C2C2C] mb-6"
             >
               {title}
-            </motion.h2>
+            </Motion.h2>
           )}
 
           {description && (
-            <motion.p
+            <Motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -59,9 +59,9 @@ const Section = ({
               }`}
             >
               {description}
-            </motion.p>
+            </Motion.p>
           )}
-        </motion.div>
+        </Motion.div>
 
         {children}
       </div>

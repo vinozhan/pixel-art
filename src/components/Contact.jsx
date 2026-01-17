@@ -1,46 +1,8 @@
-import { motion, useInView } from 'framer-motion';
+import { motion as Motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { HiLightBulb, HiPhotograph, HiCog, HiMail, HiPhone, HiLocationMarker } from 'react-icons/hi';
 import Section from './Section';
-
-const commissionFeatures = [
-  {
-    icon: HiLightBulb,
-    title: 'Your Ideas',
-    description: 'Share your vision, inspiration, and what you want the artwork to represent.',
-  },
-  {
-    icon: HiPhotograph,
-    title: 'Personal References',
-    description: 'Provide photos, sketches, or any reference material that helps guide the creation.',
-  },
-  {
-    icon: HiCog,
-    title: 'Unique Requirements',
-    description: 'Specify size, style preferences, color palette, and any special details you desire.',
-  },
-];
-
-const contactInfo = [
-  {
-    icon: HiMail,
-    label: 'Email',
-    value: 'hello@pixelart.studio',
-    href: 'mailto:hello@pixelart.studio',
-  },
-  {
-    icon: HiPhone,
-    label: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567',
-  },
-  {
-    icon: HiLocationMarker,
-    label: 'Studio',
-    value: 'San Francisco, CA',
-    href: '#',
-  },
-];
+import { commissionFeatures } from '../data/commisionFeatures';
+import { contactInfo } from '../data/contactInfo';
 
 const Contact = () => {
   const ref = useRef(null);
@@ -55,7 +17,7 @@ const Contact = () => {
     >
       <div ref={ref} className="grid lg:grid-cols-2 gap-12 lg:gap-16">
         {/* Left Column - Commission Info */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
           transition={{ duration: 0.6 }}
@@ -65,30 +27,36 @@ const Contact = () => {
           </h3>
 
           <p className="text-[#8B8680] mb-8">
-            Each artwork is created based on your personal vision. Whether it is a portrait
-            of a loved one, a landscape from your favorite memory, or an illustration of
-            your imagination, I work closely with you to ensure the final piece exceeds
-            your expectations.
+            Each artwork is created based on your personal vision. Whether it is
+            a portrait of a loved one, a landscape from your favorite memory, or
+            an illustration of your imagination, I work closely with you to
+            ensure the final piece exceeds your expectations.
           </p>
 
           {/* Commission Features */}
           <div className="space-y-6">
             {commissionFeatures.map((feature, index) => (
-              <motion.div
+              <Motion.div
                 key={feature.title}
                 initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="flex gap-4"
               >
-                <div className="flex-shrink-0 w-12 h-12 bg-[#C4A77D]/10 rounded-xl flex items-center justify-center">
+                <div className="shrink-0 w-12 h-12 bg-[#C4A77D]/10 rounded-xl flex items-center justify-center">
                   <feature.icon className="w-6 h-6 text-[#C4A77D]" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-[#2C2C2C] mb-1">{feature.title}</h4>
-                  <p className="text-sm text-[#8B8680]">{feature.description}</p>
+                  <h4 className="font-semibold text-[#2C2C2C] mb-1">
+                    {feature.title}
+                  </h4>
+                  <p className="text-sm text-[#8B8680]">
+                    {feature.description}
+                  </p>
                 </div>
-              </motion.div>
+              </Motion.div>
             ))}
           </div>
 
@@ -97,7 +65,7 @@ const Contact = () => {
             <h4 className="font-semibold text-[#2C2C2C] mb-4">Get in Touch</h4>
             <div className="space-y-3">
               {contactInfo.map((info) => (
-                <motion.a
+                <Motion.a
                   key={info.label}
                   href={info.href}
                   className="flex items-center gap-3 text-[#8B8680] hover:text-[#C4A77D] transition-colors"
@@ -105,14 +73,14 @@ const Contact = () => {
                 >
                   <info.icon className="w-5 h-5" />
                   <span>{info.value}</span>
-                </motion.a>
+                </Motion.a>
               ))}
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* Right Column - Contact Form */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -125,43 +93,55 @@ const Contact = () => {
             <form className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-[#2C2C2C] mb-2">
+                  <label
+                    htmlFor="firstName"
+                    className="block text-sm font-medium text-[#2C2C2C] mb-2"
+                  >
                     First Name
                   </label>
                   <input
                     type="text"
                     id="firstName"
                     className="w-full px-4 py-3 bg-[#FAF8F5] border border-[#E5E2DD] rounded-xl focus:outline-none focus:border-[#C4A77D] focus:ring-2 focus:ring-[#C4A77D]/20 transition-all"
-                    placeholder="John"
+                    placeholder="Jane"
                   />
                 </div>
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-[#2C2C2C] mb-2">
+                  <label
+                    htmlFor="lastName"
+                    className="block text-sm font-medium text-[#2C2C2C] mb-2"
+                  >
                     Last Name
                   </label>
                   <input
                     type="text"
                     id="lastName"
                     className="w-full px-4 py-3 bg-[#FAF8F5] border border-[#E5E2DD] rounded-xl focus:outline-none focus:border-[#C4A77D] focus:ring-2 focus:ring-[#C4A77D]/20 transition-all"
-                    placeholder="Doe"
+                    placeholder="Smith"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-[#2C2C2C] mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-[#2C2C2C] mb-2"
+                >
                   Email Address
                 </label>
                 <input
                   type="email"
                   id="email"
                   className="w-full px-4 py-3 bg-[#FAF8F5] border border-[#E5E2DD] rounded-xl focus:outline-none focus:border-[#C4A77D] focus:ring-2 focus:ring-[#C4A77D]/20 transition-all"
-                  placeholder="john@example.com"
+                  placeholder="jane@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="artworkType" className="block text-sm font-medium text-[#2C2C2C] mb-2">
+                <label
+                  htmlFor="artworkType"
+                  className="block text-sm font-medium text-[#2C2C2C] mb-2"
+                >
                   Artwork Type
                 </label>
                 <select
@@ -178,7 +158,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-[#2C2C2C] mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-[#2C2C2C] mb-2"
+                >
                   Describe Your Vision
                 </label>
                 <textarea
@@ -189,21 +172,22 @@ const Contact = () => {
                 />
               </div>
 
-              <motion.button
+              <Motion.button
                 type="submit"
                 className="w-full py-4 bg-[#2C2C2C] text-white font-medium rounded-xl hover:bg-[#C4A77D] transition-colors duration-300"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 Submit Request
-              </motion.button>
+              </Motion.button>
 
               <p className="text-xs text-center text-[#8B8680]">
-                I typically respond within 24-48 hours. Let's create something beautiful together.
+                I typically respond within 24-48 hours. Let's create something
+                beautiful together.
               </p>
             </form>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </Section>
   );

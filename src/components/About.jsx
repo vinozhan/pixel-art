@@ -1,69 +1,10 @@
-import { motion, useInView } from 'framer-motion';
+import { motion as Motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { HiPencil, HiSparkles, HiHeart, HiEye } from 'react-icons/hi';
 import Section from './Section';
-import customImage from '../assets/custom.png';
+import customImage from '../assets/images/custom.png';
+import ProcessCard from './ProcessCard';
+import { processSteps } from '../data/processSteps';
 
-const processSteps = [
-  {
-    icon: HiPencil,
-    title: 'Sketching',
-    description: 'Every artwork begins with careful pencil sketches, laying the foundation for the final piece.',
-  },
-  {
-    icon: HiSparkles,
-    title: 'Refinement',
-    description: 'Layers of detail are added with precision, bringing depth and dimension to the work.',
-  },
-  {
-    icon: HiEye,
-    title: 'Attention to Detail',
-    description: 'Each element is carefully considered, ensuring nothing escapes artistic scrutiny.',
-  },
-  {
-    icon: HiHeart,
-    title: 'Emotional Value',
-    description: 'The final piece carries not just visual beauty, but emotional resonance and meaning.',
-  },
-];
-
-const ProcessCard = ({ step, index }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.5, delay: index * 0.15 }}
-      className="group"
-    >
-      <div className="relative p-6 bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-[#E5E2DD]/50">
-        {/* Step Number */}
-        <span className="absolute -top-3 -right-3 w-8 h-8 bg-[#C4A77D] text-white text-sm font-bold rounded-full flex items-center justify-center">
-          {index + 1}
-        </span>
-
-        {/* Icon */}
-        <motion.div
-          className="w-14 h-14 bg-[#FAF8F5] rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#C4A77D] transition-colors duration-300"
-          whileHover={{ rotate: 5 }}
-        >
-          <step.icon className="w-7 h-7 text-[#C4A77D] group-hover:text-white transition-colors duration-300" />
-        </motion.div>
-
-        {/* Content */}
-        <h3 className="text-lg font-semibold text-[#2C2C2C] mb-2">
-          {step.title}
-        </h3>
-        <p className="text-[#8B8680] text-sm leading-relaxed">
-          {step.description}
-        </p>
-      </div>
-    </motion.div>
-  );
-};
 
 const About = () => {
   const imageRef = useRef(null);
@@ -79,7 +20,7 @@ const About = () => {
     >
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
         {/* Image */}
-        <motion.div
+        <Motion.div
           ref={imageRef}
           initial={{ opacity: 0, x: -50 }}
           animate={isImageInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
@@ -90,7 +31,7 @@ const About = () => {
             {/* Decorative background */}
             <div className="absolute -inset-4 bg-[#C4A77D]/10 rounded-3xl" />
 
-            <motion.div
+            <Motion.div
               className="relative rounded-2xl overflow-hidden shadow-xl"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.4 }}
@@ -100,10 +41,10 @@ const About = () => {
                 alt="Artist workspace"
                 className="w-full h-auto object-cover"
               />
-            </motion.div>
+            </Motion.div>
 
             {/* Floating stat card */}
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isImageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -111,12 +52,12 @@ const About = () => {
             >
               <p className="text-3xl font-bold text-[#C4A77D]">100+</p>
               <p className="text-sm text-[#8B8680]">Artworks Created</p>
-            </motion.div>
+            </Motion.div>
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* Content */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={isImageInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -145,20 +86,20 @@ const About = () => {
             </p>
           </div>
 
-          <motion.button
+          <Motion.button
             className="mt-8 px-8 py-4 bg-[#2C2C2C] text-white font-medium rounded-full hover:bg-[#C4A77D] transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Start Your Commission
-          </motion.button>
-        </motion.div>
+          </Motion.button>
+        </Motion.div>
       </div>
 
       {/* Process Steps */}
       <div className="mt-20">
-        <motion.h3
+        <Motion.h3
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -166,7 +107,7 @@ const About = () => {
           className="text-2xl font-bold text-[#2C2C2C] text-center mb-10"
         >
           The Creative Process
-        </motion.h3>
+        </Motion.h3>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {processSteps.map((step, index) => (

@@ -1,28 +1,7 @@
-import { motion } from 'framer-motion';
-import { FaInstagram, FaPinterest, FaBehance, FaDribbble } from 'react-icons/fa';
-import { HiArrowUp } from 'react-icons/hi';
-
-const footerLinks = {
-  navigation: [
-    { name: 'Home', href: '#home' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
-  ],
-  services: [
-    { name: 'Custom Portraits', href: '#contact' },
-    { name: 'Landscapes', href: '#gallery' },
-    { name: 'Illustrations', href: '#gallery' },
-    { name: 'Commissions', href: '#contact' },
-  ],
-};
-
-const socialLinks = [
-  { name: 'Instagram', icon: FaInstagram, href: '#' },
-  { name: 'Pinterest', icon: FaPinterest, href: '#' },
-  { name: 'Behance', icon: FaBehance, href: '#' },
-  { name: 'Dribbble', icon: FaDribbble, href: '#' },
-];
+import { motion as Motion } from 'framer-motion';
+import { HiArrowUp, HiHeart } from "react-icons/hi";
+import { footerLinks, socialLinks } from '../data/Links';
+import Logo from './Logo';
 
 const Footer = () => {
   const handleScrollToTop = () => {
@@ -43,20 +22,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <motion.a
-              href="#home"
-              onClick={(e) => handleLinkClick(e, '#home')}
-              className="inline-block text-2xl font-semibold mb-4"
-              whileHover={{ scale: 1.02 }}
-            >
-              Pixel<span className="text-[#C4A77D]">Art</span>
-            </motion.a>
+            <Logo height="h-28" variant="light" className="mb-4" />
             <p className="text-[#A89F91] text-sm mb-6">
               Every Stroke Tells a Story
             </p>
             <p className="text-[#8B8680] text-sm leading-relaxed">
-              Creating unique hand-drawn artwork that captures emotions, memories,
-              and moments. Transform your ideas into timeless pieces.
+              Creating unique hand-drawn artwork that captures emotions,
+              memories, and moments. Transform your ideas into timeless pieces.
             </p>
           </div>
 
@@ -68,14 +40,14 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.navigation.map((link) => (
                 <li key={link.name}>
-                  <motion.a
+                  <Motion.a
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
                     className="text-[#A89F91] hover:text-[#C4A77D] transition-colors text-sm"
                     whileHover={{ x: 3 }}
                   >
                     {link.name}
-                  </motion.a>
+                  </Motion.a>
                 </li>
               ))}
             </ul>
@@ -89,14 +61,14 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <motion.a
+                  <Motion.a
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
                     className="text-[#A89F91] hover:text-[#C4A77D] transition-colors text-sm"
                     whileHover={{ x: 3 }}
                   >
                     {link.name}
-                  </motion.a>
+                  </Motion.a>
                 </li>
               ))}
             </ul>
@@ -111,7 +83,7 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex gap-3 mb-6">
               {socialLinks.map((social) => (
-                <motion.a
+                <Motion.a
                   key={social.name}
                   href={social.href}
                   className="w-10 h-10 bg-[#3D3D3D] rounded-full flex items-center justify-center text-[#A89F91] hover:bg-[#C4A77D] hover:text-white transition-all"
@@ -120,7 +92,7 @@ const Footer = () => {
                   aria-label={social.name}
                 >
                   <social.icon size={18} />
-                </motion.a>
+                </Motion.a>
               ))}
             </div>
 
@@ -135,13 +107,13 @@ const Footer = () => {
                   placeholder="Your email"
                   className="flex-1 px-4 py-2.5 bg-[#3D3D3D] border border-[#4D4D4D] rounded-l-lg text-sm focus:outline-none focus:border-[#C4A77D] transition-colors"
                 />
-                <motion.button
+                <Motion.button
                   className="px-4 py-2.5 bg-[#C4A77D] text-[#2C2C2C] font-medium rounded-r-lg hover:bg-[#B8956A] transition-colors"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   Join
-                </motion.button>
+                </Motion.button>
               </div>
             </div>
           </div>
@@ -153,17 +125,27 @@ const Footer = () => {
             © {new Date().getFullYear()} PixelArt. All rights reserved.
           </p>
 
+          <p className="text-sm text-gray-400 flex items-center gap-1">
+            Made with <HiHeart className="text-rose-500 inline" /> by Vinozhan
+          </p>
+
           <div className="flex items-center gap-6">
-            <a href="#" className="text-[#8B8680] hover:text-[#C4A77D] text-sm transition-colors">
+            <a
+              href="#"
+              className="text-[#8B8680] hover:text-[#C4A77D] text-sm transition-colors"
+            >
               Privacy Policy
             </a>
-            <a href="#" className="text-[#8B8680] hover:text-[#C4A77D] text-sm transition-colors">
+            <a
+              href="#"
+              className="text-[#8B8680] hover:text-[#C4A77D] text-sm transition-colors"
+            >
               Terms of Service
             </a>
           </div>
 
           {/* Back to Top Button */}
-          <motion.button
+          <Motion.button
             onClick={handleScrollToTop}
             className="w-10 h-10 bg-[#3D3D3D] rounded-full flex items-center justify-center text-[#A89F91] hover:bg-[#C4A77D] hover:text-white transition-all"
             whileHover={{ scale: 1.1, y: -2 }}
@@ -171,7 +153,7 @@ const Footer = () => {
             aria-label="Back to top"
           >
             <HiArrowUp size={18} />
-          </motion.button>
+          </Motion.button>
         </div>
       </div>
     </footer>
