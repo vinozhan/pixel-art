@@ -59,6 +59,7 @@ src/
 ```
 
 ## Getting Started
+Live Site: https://pixel-art-portfolio.netlify.app/
 
 ### Prerequisites
 
