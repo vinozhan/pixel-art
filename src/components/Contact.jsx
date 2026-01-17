@@ -27,10 +27,10 @@ const Contact = () => {
           </h3>
 
           <p className="text-[#8B8680] mb-8">
-            Each artwork is created based on your personal vision. Whether it is a portrait
-            of a loved one, a landscape from your favorite memory, or an illustration of
-            your imagination, I work closely with you to ensure the final piece exceeds
-            your expectations.
+            Each artwork is created based on your personal vision. Whether it is
+            a portrait of a loved one, a landscape from your favorite memory, or
+            an illustration of your imagination, I work closely with you to
+            ensure the final piece exceeds your expectations.
           </p>
 
           {/* Commission Features */}
@@ -39,7 +39,9 @@ const Contact = () => {
               <Motion.div
                 key={feature.title}
                 initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="flex gap-4"
               >
@@ -47,8 +49,12 @@ const Contact = () => {
                   <feature.icon className="w-6 h-6 text-[#C4A77D]" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-[#2C2C2C] mb-1">{feature.title}</h4>
-                  <p className="text-sm text-[#8B8680]">{feature.description}</p>
+                  <h4 className="font-semibold text-[#2C2C2C] mb-1">
+                    {feature.title}
+                  </h4>
+                  <p className="text-sm text-[#8B8680]">
+                    {feature.description}
+                  </p>
                 </div>
               </Motion.div>
             ))}
@@ -87,43 +93,55 @@ const Contact = () => {
             <form className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-[#2C2C2C] mb-2">
+                  <label
+                    htmlFor="firstName"
+                    className="block text-sm font-medium text-[#2C2C2C] mb-2"
+                  >
                     First Name
                   </label>
                   <input
                     type="text"
                     id="firstName"
                     className="w-full px-4 py-3 bg-[#FAF8F5] border border-[#E5E2DD] rounded-xl focus:outline-none focus:border-[#C4A77D] focus:ring-2 focus:ring-[#C4A77D]/20 transition-all"
-                    placeholder="John"
+                    placeholder="Jane"
                   />
                 </div>
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-[#2C2C2C] mb-2">
+                  <label
+                    htmlFor="lastName"
+                    className="block text-sm font-medium text-[#2C2C2C] mb-2"
+                  >
                     Last Name
                   </label>
                   <input
                     type="text"
                     id="lastName"
                     className="w-full px-4 py-3 bg-[#FAF8F5] border border-[#E5E2DD] rounded-xl focus:outline-none focus:border-[#C4A77D] focus:ring-2 focus:ring-[#C4A77D]/20 transition-all"
-                    placeholder="Doe"
+                    placeholder="Smith"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-[#2C2C2C] mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-[#2C2C2C] mb-2"
+                >
                   Email Address
                 </label>
                 <input
                   type="email"
                   id="email"
                   className="w-full px-4 py-3 bg-[#FAF8F5] border border-[#E5E2DD] rounded-xl focus:outline-none focus:border-[#C4A77D] focus:ring-2 focus:ring-[#C4A77D]/20 transition-all"
-                  placeholder="john@example.com"
+                  placeholder="jane@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="artworkType" className="block text-sm font-medium text-[#2C2C2C] mb-2">
+                <label
+                  htmlFor="artworkType"
+                  className="block text-sm font-medium text-[#2C2C2C] mb-2"
+                >
                   Artwork Type
                 </label>
                 <select
@@ -140,7 +158,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-[#2C2C2C] mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-[#2C2C2C] mb-2"
+                >
                   Describe Your Vision
                 </label>
                 <textarea
@@ -161,7 +182,8 @@ const Contact = () => {
               </Motion.button>
 
               <p className="text-xs text-center text-[#8B8680]">
-                I typically respond within 24-48 hours. Let's create something beautiful together.
+                I typically respond within 24-48 hours. Let's create something
+                beautiful together.
               </p>
             </form>
           </div>

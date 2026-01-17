@@ -1,6 +1,6 @@
 import { motion as Motion } from 'framer-motion';
 import { HiArrowDown } from 'react-icons/hi';
-import featuredImage from '../assets/featured image.png';
+import featuredImage from '../assets/images/featured image.png';
 
 const Hero = () => {
   const handleScrollToGallery = () => {

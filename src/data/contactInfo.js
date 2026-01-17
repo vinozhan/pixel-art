@@ -10,13 +10,13 @@ export const contactInfo = [
   {
     icon: HiPhone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "+94 (777) 123-4567",
+    href: "tel:+947771234567",
   },
   {
     icon: HiLocationMarker,
     label: "Studio",
-    value: "San Francisco, CA",
+    value: "Colombo, LK",
     href: "#",
   },
 ];

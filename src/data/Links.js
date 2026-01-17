@@ -1,4 +1,4 @@
-import { FaInstagram, FaPinterest, FaBehance, FaDribbble } from "react-icons/fa";
+import { FaInstagram, FaPinterest, FaBehance, FaDribbble, FaFacebook, FaTiktok } from "react-icons/fa";
 
 export const navLinks = [
   { name: 'Home', href: '#home' },
@@ -25,6 +25,6 @@ export const footerLinks = {
 export const socialLinks = [
   { name: "Instagram", icon: FaInstagram, href: "#" },
   { name: "Pinterest", icon: FaPinterest, href: "#" },
-  { name: "Behance", icon: FaBehance, href: "#" },
-  { name: "Dribbble", icon: FaDribbble, href: "#" },
+  { name: "TikTok", icon: FaTiktok, href: "#" },
+  { name: "Facebook", icon: FaFacebook, href: "#" },
 ];

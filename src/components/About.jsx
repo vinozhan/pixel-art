@@ -1,7 +1,7 @@
 import { motion as Motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Section from './Section';
-import customImage from '../assets/custom.png';
+import customImage from '../assets/images/custom.png';
 import ProcessCard from './ProcessCard';
 import { processSteps } from '../data/processSteps';
 

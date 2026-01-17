@@ -1,12 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import { navLinks } from '../data/Links';
 import Logo from './Logo';
+import useActiveSection from '../hooks/useActiveSection';
+import NavLink from './NavLink';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // Extract section IDs from navLinks
+  const sectionIds = useMemo(
+    () => navLinks.map((link) => link.href.replace('#', '')),
+    []
+  );
+
+  const activeSection = useActiveSection(sectionIds);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,16 +55,14 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Motion.a
+              <NavLink
                 key={link.name}
                 href={link.href}
+                isActive={activeSection === link.href.replace('#', '')}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="text-[#2C2C2C] hover:text-[#C4A77D] transition-colors duration-200 text-sm font-medium tracking-wide"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.95 }}
               >
                 {link.name}
-              </Motion.a>
+              </NavLink>
             ))}
             <Motion.a
               href="#contact"
@@ -90,17 +98,16 @@ const Navbar = () => {
           >
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link, index) => (
-                <Motion.a
+                <NavLink
                   key={link.name}
                   href={link.href}
+                  isActive={activeSection === link.href.replace('#', '')}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="block text-[#2C2C2C] hover:text-[#C4A77D] transition-colors duration-200 text-lg font-medium"
+                  isMobile={true}
+                  index={index}
                 >
                   {link.name}
-                </Motion.a>
+                </NavLink>
               ))}
               <Motion.a
                 href="#contact"
